@@ -1,4 +1,8 @@
 import ReactDOM from "react-dom";
 import { ItemList } from "./components";
+import { ChakraProvider } from "@chakra-ui/react"
 
-ReactDOM.render(<ItemList />, document.getElementById("root"));
+ReactDOM.render(
+  <ChakraProvider><ItemList/></ChakraProvider>,
+  document.getElementById("root")
+);
