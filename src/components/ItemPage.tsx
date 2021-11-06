@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from 'react-router-dom';
 import { getItem, Item } from "../services/items";
-import { Container, Link, VStack } from "@chakra-ui/react";
+import { Container, Link, VStack, Image, Heading, Text } from "@chakra-ui/react";
 import { Link as RouterLink } from "react-router-dom";
 import { ChevronLeftIcon } from "@chakra-ui/icons";
 import { Header } from "./Header";
@@ -15,6 +15,10 @@ export const ItemPage: React.FC = () => {
     }
   }, [id]);
 
+  if (!item) {
+    return null;
+  }
+
   return (
     <VStack>
       <Header>
@@ -23,7 +27,9 @@ export const ItemPage: React.FC = () => {
         </Link>
       </Header>
       <Container maxW="container.xl">
-        {item && item.name}
+        <Image objectFit="cover" src={item.imageUrls[0]?.url} alt={item.name} />
+        <Heading>{item.name}</Heading>
+        <Text>{item.description}</Text>
       </Container>
     </VStack>
   );
