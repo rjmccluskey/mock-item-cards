@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from 'react-router-dom';
 import { getItem, Item } from "../services/items";
-import { Container, Link, VStack, Image, Heading, Text } from "@chakra-ui/react";
+import { Container, Link, VStack, Image, Heading, Text, Wrap } from "@chakra-ui/react";
 import { Link as RouterLink } from "react-router-dom";
 import { ChevronLeftIcon } from "@chakra-ui/icons";
 import { Header } from "./Header";
+import { VariantCard } from "./VariantCard";
 
 export const ItemPage: React.FC = () => {
   const { id } = useParams();
@@ -30,6 +31,9 @@ export const ItemPage: React.FC = () => {
         <Image objectFit="cover" src={item.imageUrls[0]?.url} alt={item.name} />
         <Heading>{item.name}</Heading>
         <Text>{item.description}</Text>
+        <Wrap spacing="30px">
+          {item.variants.map(variant => <VariantCard variant={variant} key={variant.id} />)}
+        </Wrap>
       </Container>
     </VStack>
   );
