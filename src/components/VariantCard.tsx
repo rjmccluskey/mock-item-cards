@@ -6,10 +6,10 @@ import NumberFormat from 'react-number-format';
 
 export const VariantCard: React.FC<{ variant: Variant }> = ({ variant }) => {
   return (
-    <Card w="240px" h="240px">
-      <Heading as="h5" size="sm">{variant.name}</Heading>
-      <Text>{variant.description}</Text>
-      <Text>
+    <Card w={64} h={48}>
+      <Heading as="h5" size="sm" mb={2}>{variant.name}</Heading>
+      <Text fontSize="sm">{variant.description}</Text>
+      <Text mt="auto" color="green.400" fontWeight="semibold">
         <NumberFormat
           value={variant.price / 100}
           displayType="text"
