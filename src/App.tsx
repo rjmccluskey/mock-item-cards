@@ -1,7 +1,6 @@
 import React from "react";
 import { Routes, Route, Navigate } from "react-router-dom";
-import { ItemList } from "./components";
-import { ItemPage } from "./components/ItemPage";
+import { ItemList, ItemPage } from "./components";
 
 export const App: React.FC = () => {
   return (
