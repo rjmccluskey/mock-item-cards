@@ -1,5 +1,5 @@
 import React from "react";
-import { Heading, List, ListItem, Button, ListItemProps } from "@chakra-ui/react";
+import { Heading, List, ListItem, Button, ListItemProps, Box, Text } from "@chakra-ui/react";
 import { Link } from "react-router-dom";
 import { Item, Variant } from "../services/items";
 import { Card } from "./Card";
@@ -28,19 +28,24 @@ const Variants: React.FC<{variants: Variant[]}> = ({ variants }) => {
 
 export const ItemCard: React.FC<{item: Item}> = ({ item }) => {
   return (
-    <Card w={60} h={60}>
-      <Heading as="h5" size="sm" mb={2}>{item.name}</Heading>
-      <Variants variants={item.variants} />
-      <Button
-        mt="auto"
-        alignSelf="center"
-        colorScheme="green"
-        w="100%"
-        as={Link}
-        to={`/items/${item.id}`}
-      >
-        SELECT
-      </Button>
-    </Card>
+    <Box>
+      <Card w={60} h={60} mb={1.5}>
+        <Heading as="h5" size="sm" mb={2}>{item.name}</Heading>
+        <Variants variants={item.variants} />
+        <Button
+          mt="auto"
+          alignSelf="center"
+          colorScheme="green"
+          w="100%"
+          as={Link}
+          to={`/items/${item.id}`}
+        >
+          SELECT
+        </Button>
+      </Card>
+      <Text fontSize="xs" fontWeight="semibold" textAlign="center">
+        {item.name}
+      </Text>
+    </Box>
   );
 };
