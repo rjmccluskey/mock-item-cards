@@ -14,7 +14,7 @@ export const ItemList: React.FC = () => {
     <VStack>
       <Header />
       <Container maxW="container.xl">
-        <Wrap spacing="30px" justify="center">
+        <Wrap spacing={5} justify="center">
           {items.map(item => <ItemCard item={item} key={item.id} />)}
         </Wrap>
       </Container>

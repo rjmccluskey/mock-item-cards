@@ -8,6 +8,8 @@ export const Card: React.FC<WrapItemProps> = ({ children, ...props }) => {
       borderRadius="lg"
       overflow="hidden"
       flexDirection="column"
+      p={2.5}
+      boxShadow="base"
       {...props}
     >
       {children}
