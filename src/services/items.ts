@@ -20,7 +20,7 @@ export interface Image {
 }
 
 export async function getItems(): Promise<Item[]> {
-  return get('items');
+  return get("items");
 }
 
 export async function getItem(id: string): Promise<Item> {

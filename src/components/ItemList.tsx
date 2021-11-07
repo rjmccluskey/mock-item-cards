@@ -7,7 +7,7 @@ import { Header } from "./Header";
 export const ItemList: React.FC = () => {
   const [items, setItems] = useState<Item[]>([]);
   useEffect(() => {
-    getItems().then(setItems)
+    getItems().then(setItems);
   }, []);
 
   return (
@@ -15,7 +15,9 @@ export const ItemList: React.FC = () => {
       <Header />
       <Container maxW="container.xl">
         <Wrap spacing={5} justify="center">
-          {items.map(item => <ItemCard item={item} key={item.id} />)}
+          {items.map((item) => (
+            <ItemCard item={item} key={item.id} />
+          ))}
         </Wrap>
       </Container>
     </VStack>

@@ -1,7 +1,16 @@
 import React, { useEffect, useState } from "react";
-import { useParams } from 'react-router-dom';
+import { useParams } from "react-router-dom";
 import { getItem, Item } from "../services/items";
-import { Container, Link, VStack, Image, Heading, Text, Wrap, Stack } from "@chakra-ui/react";
+import {
+  Container,
+  Link,
+  VStack,
+  Image,
+  Heading,
+  Text,
+  Wrap,
+  Stack,
+} from "@chakra-ui/react";
 import { Link as RouterLink } from "react-router-dom";
 import { ChevronLeftIcon } from "@chakra-ui/icons";
 import { Header } from "./Header";
@@ -28,10 +37,10 @@ export const ItemPage: React.FC = () => {
         </Link>
       </Header>
       <Container maxW="container.xl">
-        <Stack direction={['column', 'column', 'column', 'row']} spacing={9}>
+        <Stack direction={["column", "column", "column", "row"]} spacing={9}>
           <Image
-            alignSelf={['center', 'center', 'center', 'flex-start']}
-            w={['md', 'md', 'md', 'sm']}
+            alignSelf={["center", "center", "center", "flex-start"]}
+            w={["md", "md", "md", "sm"]}
             flexShrink={0}
             objectFit="contain"
             src={item.imageUrls[0]?.url}
@@ -43,7 +52,9 @@ export const ItemPage: React.FC = () => {
               <Text>{item.description}</Text>
             </Container>
             <Wrap spacing={6} alignSelf="flex-start">
-              {item.variants.map(variant => <VariantCard variant={variant} key={variant.id} />)}
+              {item.variants.map((variant) => (
+                <VariantCard variant={variant} key={variant.id} />
+              ))}
             </Wrap>
           </VStack>
         </Stack>

@@ -11,4 +11,4 @@ export const App: React.FC = () => {
       <Route path="items/:id" element={<ItemPage />} />
     </Routes>
   );
-}
+};

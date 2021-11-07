@@ -1,5 +1,15 @@
 import React, { useState } from "react";
-import { Heading, List, ListItem, Button, ListItemProps, Box, Text, Image, ListProps } from "@chakra-ui/react";
+import {
+  Heading,
+  List,
+  ListItem,
+  Button,
+  ListItemProps,
+  Box,
+  Text,
+  Image,
+  ListProps,
+} from "@chakra-ui/react";
 import { Link } from "react-router-dom";
 import { Item, Variant } from "../services/items";
 import { Card } from "./Card";
@@ -21,16 +31,19 @@ const Variants: React.FC<VariantsProps> = ({ variants, ...props }) => {
   const remainder = variants.length - firstFour.length;
   return (
     <List w="100%" {...props}>
-      {firstFour.map((variant, i) =>
+      {firstFour.map((variant, i) => (
         <StyledListItem key={variant.id} isTruncated>
           Item {i + 1} - {variant.name}
-        </StyledListItem>)}
-      {remainder ? <StyledListItem>... plus {remainder} more</StyledListItem> : null}
+        </StyledListItem>
+      ))}
+      {remainder ? (
+        <StyledListItem>... plus {remainder} more</StyledListItem>
+      ) : null}
     </List>
   );
-}
+};
 
-export const ItemCard: React.FC<{item: Item}> = ({ item }) => {
+export const ItemCard: React.FC<{ item: Item }> = ({ item }) => {
   const [isHovering, setIsHovering] = useState(false);
   const [imageLoaded, setImageLoaded] = useState(false);
   const detailsOpacity = imageLoaded ? 1 : 0;
@@ -53,7 +66,7 @@ export const ItemCard: React.FC<{item: Item}> = ({ item }) => {
           right={0}
           bottom={0}
           left={0}
-          opacity={isHovering ? 0.2 : 1 }
+          opacity={isHovering ? 0.2 : 1}
           zIndex={isHovering ? 0 : 1}
           onLoad={() => setImageLoaded(true)}
         />
